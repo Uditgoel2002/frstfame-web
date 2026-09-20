@@ -3,7 +3,8 @@
 /** @jsxFrag React.Fragment */
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-
+import { supabase } from './supabaseClient';
+import { supabase } from './supabaseClient';
 // Guarantee element compatibility across React runtimes
 if (typeof Symbol !== 'undefined' && Symbol.for) {
   const origSymbolFor = Symbol.for.bind(Symbol);
@@ -1127,11 +1128,34 @@ function TeardownSection() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!businessName || !website || !email) return;
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const { error } = await supabase
+      .from('leads')
+      .insert([
+        {
+          name: formData?.company || formData?.name || null,
+          email: formData?.email || null,
+          website: formData?.website || null,
+          phone: formData?.phone || null,
+          service: 'Audit Request',
+          monthly_spend: formData?.spend || formData?.budget || null,
+        },
+      ]);
+
+    if (error) {
+      console.error('Supabase insert error:', error);
+      alert('Could not submit audit request. Please try again.');
+      return;
+    }
+
     setSubmitted(true);
-  };
+  } catch (err) {
+    console.error('Submission failed:', err);
+  }
+};
 
   return (
     <section id="teardown" className="py-20 bg-zinc-100 border-b-2 border-zinc-950">
