@@ -4,6 +4,7 @@
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { supabase } from './supabaseClient';
+
 // Guarantee element compatibility across React runtimes
 if (typeof Symbol !== 'undefined' && Symbol.for) {
   const origSymbolFor = Symbol.for.bind(Symbol);
@@ -289,7 +290,6 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
 
   return (
     <header className="sticky top-0 z-50 bg-zinc-100/95 backdrop-blur-md border-b-2 border-zinc-950">
-      {/* Pilot alert line */}
       <div className="bg-zinc-950 text-zinc-300 text-[11px] font-mono py-1.5 px-4 flex items-center justify-between border-b border-zinc-800">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
@@ -304,7 +304,6 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
         </div>
       </div>
 
-      {/* Main navigation header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <a href="#" className="flex items-center gap-2.5 group">
@@ -322,7 +321,6 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
           </a>
         </div>
 
-        {/* Desktop Links */}
         <nav className="hidden lg:flex items-center gap-7 font-mono text-xs font-bold uppercase tracking-wider text-zinc-800">
           <a href="#capabilities" className="hover:text-zinc-950 hover:underline decoration-yellow-400 decoration-2 underline-offset-4 transition-all">Capabilities</a>
           <a href="#standard" className="hover:text-zinc-950 hover:underline decoration-yellow-400 decoration-2 underline-offset-4 transition-all">The Standard</a>
@@ -332,7 +330,6 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
           <a href="#teardown" className="hover:text-zinc-950 hover:underline decoration-yellow-400 decoration-2 underline-offset-4 transition-all">Audit</a>
         </nav>
 
-        {/* Action Buttons */}
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenBooking}
@@ -364,7 +361,6 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileOpen && (
         <div className="lg:hidden border-t-2 border-zinc-950 bg-zinc-200 p-4 space-y-2 font-mono text-xs uppercase font-bold text-zinc-900">
           <a href="#capabilities" onClick={() => setMobileOpen(false)} className="block py-2.5 px-3 bg-white border border-zinc-300 shadow-[2px_2px_0px_#71717a]">&bull; Capabilities Spec Sheet</a>
@@ -382,7 +378,6 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
 function HeroSection({ onOpenAudit, onOpenBooking }) {
   return (
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 bg-zinc-100 border-b-2 border-zinc-950 overflow-hidden">
-      {/* Tactile grid pattern */}
       <div className="absolute inset-0 opacity-[0.06] pointer-events-none bg-[radial-gradient(#18181b_1px,transparent_1px)] [background-size:18px_18px]"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -404,7 +399,6 @@ function HeroSection({ onOpenAudit, onOpenBooking }) {
           {AGENCY_DATA.subhead}
         </p>
 
-        {/* Live CTA button cluster */}
         <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
           <button
             onClick={onOpenAudit}
@@ -422,7 +416,6 @@ function HeroSection({ onOpenAudit, onOpenBooking }) {
           </a>
         </div>
 
-        {/* Tactile real-world KPI chips */}
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-white border-2 border-zinc-950 p-5 shadow-[3px_3px_0px_#18181b]">
             <div className="font-mono text-[10px] uppercase font-bold text-zinc-500">[ BENCHMARK 01 ]</div>
@@ -464,7 +457,6 @@ function ComparisonMatrix() {
         />
 
         <div className="border-2 border-zinc-950 bg-white shadow-[6px_6px_0px_#18181b]">
-          {/* Table Header */}
           <div className="grid grid-cols-1 md:grid-cols-12 bg-zinc-950 text-zinc-100 font-mono text-xs uppercase tracking-wider py-4 px-6 font-bold">
             <div className="md:col-span-3 text-zinc-400">OPERATIONAL AXIS</div>
             <div className="md:col-span-4 text-zinc-400 flex items-center gap-1.5">
@@ -477,7 +469,6 @@ function ComparisonMatrix() {
             </div>
           </div>
 
-          {/* Rows */}
           <div className="divide-y-2 divide-zinc-200">
             {FLUFF_VS_STANDARD.map((row, idx) => (
               <div
@@ -535,7 +526,6 @@ function CapabilitiesSheet({ onOpenAudit }) {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Selector Navigation */}
           <div className="lg:col-span-5 space-y-2.5">
             {CAPABILITIES.map((cap) => {
               const active = cap.id === activeTab;
@@ -571,7 +561,6 @@ function CapabilitiesSheet({ onOpenAudit }) {
             })}
           </div>
 
-          {/* Detailed Spec Sheet */}
           <div className="lg:col-span-7 bg-white border-2 border-zinc-950 p-6 sm:p-8 shadow-[6px_6px_0px_#18181b]">
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b-2 border-zinc-200">
               <div className="flex items-center gap-2">
@@ -592,7 +581,6 @@ function CapabilitiesSheet({ onOpenAudit }) {
               </p>
             </div>
 
-            {/* Tech Stack Chips */}
             <div className="mt-6 p-4 bg-zinc-100 border-2 border-zinc-300">
               <span className="font-mono text-[11px] uppercase font-bold text-zinc-500 block mb-2">
                 OPERATIONAL INFRASTRUCTURE & TOOLS:
@@ -609,7 +597,6 @@ function CapabilitiesSheet({ onOpenAudit }) {
               </div>
             </div>
 
-            {/* Deliverables Checklist */}
             <div className="mt-6">
               <span className="font-mono text-xs uppercase tracking-wider font-black text-zinc-950 block mb-3">
                 [ TANGIBLE SYSTEM DELIVERABLES ]
@@ -626,7 +613,6 @@ function CapabilitiesSheet({ onOpenAudit }) {
               </ul>
             </div>
 
-            {/* Footer info & CTA */}
             <div className="mt-8 pt-6 border-t-2 border-zinc-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <span className="font-mono text-[10px] uppercase text-zinc-500 block">SLA TURNAROUND</span>
@@ -683,7 +669,6 @@ function RoiSimulator({ onOpenAudit }) {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Controls column */}
           <div className="lg:col-span-6 bg-white border-2 border-zinc-950 p-6 sm:p-8 shadow-[6px_6px_0px_#18181b] space-y-6">
             <div className="flex items-center justify-between pb-3 border-b-2 border-zinc-200">
               <span className="font-mono text-xs uppercase font-black text-zinc-950">
@@ -692,7 +677,6 @@ function RoiSimulator({ onOpenAudit }) {
               <IndustrialBadge text="USD CALCULATOR" />
             </div>
 
-            {/* Slider 1: Ad Spend */}
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <label className="font-mono text-xs uppercase font-bold text-zinc-800">
@@ -717,7 +701,6 @@ function RoiSimulator({ onOpenAudit }) {
               </div>
             </div>
 
-            {/* Slider 2: Deal Value */}
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <label className="font-mono text-xs uppercase font-bold text-zinc-800">
@@ -742,7 +725,6 @@ function RoiSimulator({ onOpenAudit }) {
               </div>
             </div>
 
-            {/* Slider 3: Traffic */}
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <label className="font-mono text-xs uppercase font-bold text-zinc-800">
@@ -767,7 +749,6 @@ function RoiSimulator({ onOpenAudit }) {
               </div>
             </div>
 
-            {/* Slider 4: Conversion Rate */}
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <label className="font-mono text-xs uppercase font-bold text-zinc-800">
@@ -793,7 +774,6 @@ function RoiSimulator({ onOpenAudit }) {
             </div>
           </div>
 
-          {/* Results column */}
           <div className="lg:col-span-6 bg-zinc-950 text-white border-2 border-zinc-950 p-6 sm:p-8 shadow-[6px_6px_0px_#71717a] flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-zinc-800 mb-6">
@@ -805,7 +785,6 @@ function RoiSimulator({ onOpenAudit }) {
                 </span>
               </div>
 
-              {/* 2x2 readout grid */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-zinc-900 border-2 border-zinc-800 p-4">
                   <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider block">
@@ -828,7 +807,6 @@ function RoiSimulator({ onOpenAudit }) {
                 </div>
               </div>
 
-              {/* Cash ledger specs */}
               <div className="bg-zinc-900 border border-zinc-800 p-5 space-y-3 mb-6 font-mono text-xs">
                 <div className="flex justify-between items-center pb-2 border-b border-zinc-800">
                   <span className="text-zinc-400">Projected Pipeline Revenue Lift:</span>
@@ -950,7 +928,6 @@ function AiFunnelSimulator() {
             </button>
           </div>
 
-          {/* 4 Pipeline Stages */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
             {steps.map((s, idx) => {
               const isCurrent = activeStep === idx;
@@ -988,7 +965,6 @@ function AiFunnelSimulator() {
             })}
           </div>
 
-          {/* Live Terminal Log / Output Box */}
           <div className="mt-8 bg-zinc-950 text-zinc-300 p-5 border-2 border-zinc-950 font-mono text-xs shadow-[4px_4px_0px_#71717a]">
             <div className="flex items-center justify-between pb-2 border-b border-zinc-800 mb-3 text-[11px] text-zinc-500">
               <span>SIMULATED LOG: STEP {steps[activeStep].num} // {steps[activeStep].tag}</span>
@@ -1105,7 +1081,10 @@ function TeardownSection() {
   const [businessName, setBusinessName] = useState("");
   const [website, setWebsite] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [spend, setSpend] = useState("$2,500 - $5,000 / mo");
   const [bottleneck, setBottleneck] = useState("ppc_waste");
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const bottleneckNotes = {
@@ -1128,133 +1107,186 @@ function TeardownSection() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    if (!email) return;
 
-  
-};
+    setSubmitting(true);
+    const payload = {
+      name: businessName || null,
+      email: email || null,
+      website: website || null,
+      phone: phone || null,
+      service: `48h Teardown Audit [${bottleneck}]`,
+      monthly_spend: spend || null,
+    };
+
+    console.log('Sending lead to Supabase:', payload);
+
+    try {
+      const { error } = await supabase.from('leads').insert([payload]);
+
+      if (error) {
+        console.error('Supabase insert error:', error);
+        alert('Could not submit audit request: ' + error.message);
+        return;
+      }
+
+      console.log('Lead saved successfully to Supabase!');
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Submission failed:', err);
+      alert('Network error submitting audit request. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section id="teardown" className="py-20 bg-zinc-100 border-b-2 border-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionStamp
-          tag="ZERO COST / ZERO PRESSURE"
-          title="Request Your 48-Hour Digital Teardown."
-          subtitle="Tell us your primary business bottleneck. We will manually inspect your search footprint, landing pages, and lead pipeline, then record a private 10-minute video teardown."
+          tag="48-HOUR DIGITAL TEARDOWN"
+          title="Claim Your Zero-Fluff SME Revenue Teardown."
+          subtitle="Submit your company information below. Our senior operators analyze ad waste, conversion friction, and SEO visibility gaps before delivering an actionable teardown memo."
         />
 
         <div className="border-2 border-zinc-950 bg-white shadow-[6px_6px_0px_#18181b] p-6 sm:p-10 max-w-4xl mx-auto">
           {submitted ? (
-            <div className="text-center py-10">
-              <div className="w-14 h-14 bg-yellow-400 border-2 border-zinc-950 shadow-[3px_3px_0px_#18181b] flex items-center justify-center font-mono text-2xl font-black text-zinc-950 mx-auto mb-4">
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-yellow-400 border-2 border-zinc-950 shadow-[3px_3px_0px_#18181b] flex items-center justify-center font-mono font-black text-2xl mx-auto mb-4">
                 ✓
               </div>
               <h3 className="text-2xl font-black text-zinc-950 font-sans">
-                Teardown Ticket Queued Successfully.
+                Teardown Audit Request Received.
               </h3>
-              <p className="text-sm text-zinc-700 font-sans mt-2 max-w-md mx-auto">
-                Our growth engineering team is inspecting <strong>{website}</strong>. You will receive a private 10-minute Loom teardown video at <strong>{email}</strong> within 48 business hours.
+              <p className="mt-3 text-sm text-zinc-700 max-w-md mx-auto font-sans">
+                Our growth engineering cohort has received your profile. We will inspect your digital infrastructure and send your direct action memo within 48 hours.
               </p>
-              <div className="mt-6">
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="font-mono text-xs uppercase font-bold text-zinc-900 underline"
-                >
-                  Submit another website audit &rarr;
-                </button>
-              </div>
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  setBusinessName("");
+                  setWebsite("");
+                  setEmail("");
+                  setPhone("");
+                }}
+                className="mt-6 font-mono text-xs uppercase font-bold text-zinc-900 underline decoration-yellow-400 decoration-2 underline-offset-4 hover:text-black"
+              >
+                Submit another website audit &rarr;
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="font-mono text-xs uppercase font-bold text-zinc-900 block mb-2">
+                  <label className="font-mono text-xs uppercase font-bold text-zinc-700 block mb-2">
                     Company / Trade Name *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Apex Industrial Solutions"
+                    placeholder="e.g., Apex Industrial Solutions"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    className="w-full p-3.5 bg-zinc-100 border-2 border-zinc-400 focus:border-zinc-950 font-mono text-xs text-zinc-950 outline-none"
+                    className="w-full p-3 bg-zinc-100 border-2 border-zinc-300 focus:border-zinc-950 font-mono text-xs outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs uppercase font-bold text-zinc-900 block mb-2">
-                    Current Website URL *
+                  <label className="font-mono text-xs uppercase font-bold text-zinc-700 block mb-2">
+                    Direct Work Email *
                   </label>
                   <input
-                    type="url"
+                    type="email"
                     required
-                    placeholder="https://apexindustrial.com"
+                    placeholder="founder@company.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full p-3 bg-zinc-100 border-2 border-zinc-300 focus:border-zinc-950 font-mono text-xs outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-mono text-xs uppercase font-bold text-zinc-700 block mb-2">
+                    Website URL
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="https://company.com"
                     value={website}
                     onChange={(e) => setWebsite(e.target.value)}
-                    className="w-full p-3.5 bg-zinc-100 border-2 border-zinc-400 focus:border-zinc-950 font-mono text-xs text-zinc-950 outline-none"
+                    className="w-full p-3 bg-zinc-100 border-2 border-zinc-300 focus:border-zinc-950 font-mono text-xs outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-mono text-xs uppercase font-bold text-zinc-700 block mb-2">
+                    Direct Phone / Mobile
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+1 (555) 019-2834"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full p-3 bg-zinc-100 border-2 border-zinc-300 focus:border-zinc-950 font-mono text-xs outline-none transition-colors"
                   />
                 </div>
               </div>
 
-              <div>
-                <label className="font-mono text-xs uppercase font-bold text-zinc-900 block mb-2">
-                  Founder / Operator Email (For Private Video Delivery) *
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="founder@apexindustrial.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full p-3.5 bg-zinc-100 border-2 border-zinc-400 focus:border-zinc-950 font-mono text-xs text-zinc-950 outline-none"
-                />
-              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="font-mono text-xs uppercase font-bold text-zinc-700 block mb-2">
+                    Estimated Monthly Marketing Budget
+                  </label>
+                  <select
+                    value={spend}
+                    onChange={(e) => setSpend(e.target.value)}
+                    className="w-full p-3 bg-zinc-100 border-2 border-zinc-300 focus:border-zinc-950 font-mono text-xs outline-none transition-colors"
+                  >
+                    <option value="Under $1,500 / mo">Under $1,500 / mo</option>
+                    <option value="$1,500 - $3,500 / mo">$1,500 - $3,500 / mo</option>
+                    <option value="$3,500 - $7,500 / mo">$3,500 - $7,500 / mo</option>
+                    <option value="$7,500+ / mo">$7,500+ / mo</option>
+                  </select>
+                </div>
 
-              {/* Primary Bottleneck Selector */}
-              <div>
-                <label className="font-mono text-xs uppercase font-bold text-zinc-900 block mb-2">
-                  Select Your Primary Growth Bottleneck
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {[
-                    { key: "ppc_waste", label: "High Ad Spend / Low Lead Volume" },
-                    { key: "seo_invisible", label: "Invisible on Google Maps & Local Search" },
-                    { key: "slow_site", label: "Slow Website / Low Form Conversion" },
-                    { key: "slow_leads", label: "Leads Going Cold / Slow Follow-up" }
-                  ].map((b) => (
-                    <button
-                      type="button"
-                      key={b.key}
-                      onClick={() => setBottleneck(b.key)}
-                      className={`p-3 text-left border-2 font-mono text-xs transition-all ${
-                        bottleneck === b.key
-                          ? "bg-yellow-400 text-zinc-950 border-zinc-950 font-black shadow-[3px_3px_0px_#18181b]"
-                          : "bg-white text-zinc-800 border-zinc-300 hover:border-zinc-950 font-medium"
-                      }`}
-                    >
-                      {bottleneck === b.key ? "▶ " : "○ "} {b.label}
-                    </button>
-                  ))}
+                <div>
+                  <label className="font-mono text-xs uppercase font-bold text-zinc-700 block mb-2">
+                    Primary Operational Bottleneck
+                  </label>
+                  <select
+                    value={bottleneck}
+                    onChange={(e) => setBottleneck(e.target.value)}
+                    className="w-full p-3 bg-zinc-100 border-2 border-zinc-300 focus:border-zinc-950 font-mono text-xs outline-none transition-colors"
+                  >
+                    <option value="ppc_waste">PPC & Paid Ads Waste / Leakage</option>
+                    <option value="seo_invisible">Poor Google Local 3-Pack Rank</option>
+                    <option value="slow_site">High Bounce Rate / Low Conversion</option>
+                    <option value="slow_leads">Slow Lead Follow-up Times</option>
+                  </select>
                 </div>
               </div>
 
-              {/* Dynamic Live Diagnostic Preview */}
-              <div className="p-4 bg-zinc-100 border-2 border-zinc-950 font-mono text-xs text-zinc-800">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-2 h-2 bg-yellow-400 border border-zinc-950"></span>
-                  <span className="font-bold text-zinc-950 uppercase">
-                    PRE-DIAGNOSTIC NOTE: {bottleneckNotes[bottleneck].tag}
-                  </span>
+              {/* Dynamic Bottleneck Insight Box */}
+              <div className="p-4 bg-yellow-50 border-2 border-zinc-950 font-mono text-xs">
+                <div className="text-zinc-500 font-bold uppercase mb-1">
+                  [ DIAGNOSTIC NOTE: {bottleneckNotes[bottleneck].tag} ]
                 </div>
-                <p className="text-zinc-600 font-sans text-xs">
+                <div className="text-zinc-900 font-medium">
                   {bottleneckNotes[bottleneck].note}
-                </p>
+                </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 font-mono text-xs uppercase tracking-widest font-black text-zinc-950 bg-yellow-400 hover:bg-yellow-300 border-2 border-zinc-950 shadow-[4px_4px_0px_#18181b] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+                disabled={submitting}
+                className={`w-full py-4 font-mono text-xs uppercase tracking-widest font-black border-2 border-zinc-950 transition-all ${
+                  submitting
+                    ? "bg-zinc-300 text-zinc-600 cursor-not-allowed"
+                    : "bg-yellow-400 text-zinc-950 hover:bg-yellow-300 shadow-[3px_3px_0px_#18181b] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                }`}
               >
-                Dispatch Teardown Request (Guaranteed 48h Response) &rarr;
+                {submitting ? "Transmitting Profile to Supabase..." : "Dispatch 48-Hour Digital Teardown Request →"}
               </button>
             </form>
           )}
@@ -1313,15 +1345,45 @@ function BookingModal({ isOpen, onClose }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
 
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   const times = ["09:30 AM", "11:30 AM", "02:00 PM", "04:15 PM"];
 
-  const handleBooking = (e) => {
+  const handleBooking = async (e) => {
     e.preventDefault();
     if (!name || !email) return;
-    setConfirmed(true);
+
+    setSubmitting(true);
+    const payload = {
+      name: name,
+      email: email,
+      phone: phone || null,
+      service: `15m Call - ${selectedDay} at ${selectedTime}`,
+      website: null,
+      monthly_spend: null
+    };
+
+    console.log('Dispatching booking lead to Supabase:', payload);
+
+    try {
+      const { error } = await supabase.from('leads').insert([payload]);
+
+      if (error) {
+        console.error('Supabase booking error:', error);
+        alert('Could not submit booking: ' + error.message);
+        return;
+      }
+
+      console.log('Booking confirmed & saved to Supabase!');
+      setConfirmed(true);
+    } catch (err) {
+      console.error('Booking failed:', err);
+      alert('Network error scheduling call. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -1361,6 +1423,9 @@ function BookingModal({ isOpen, onClose }) {
             <button
               onClick={() => {
                 setConfirmed(false);
+                setName("");
+                setEmail("");
+                setPhone("");
                 onClose();
               }}
               className="mt-6 px-6 py-2.5 bg-zinc-950 text-yellow-400 font-mono text-xs uppercase font-black"
@@ -1370,7 +1435,6 @@ function BookingModal({ isOpen, onClose }) {
           </div>
         ) : (
           <form onSubmit={handleBooking} className="mt-6 space-y-4">
-            {/* Day selector */}
             <div>
               <label className="font-mono text-[11px] uppercase font-bold text-zinc-700 block mb-1.5">
                 1. Select Preferred Day
@@ -1393,7 +1457,6 @@ function BookingModal({ isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Time selector */}
             <div>
               <label className="font-mono text-[11px] uppercase font-bold text-zinc-700 block mb-1.5">
                 2. Select Time Window (EST)
@@ -1416,10 +1479,9 @@ function BookingModal({ isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Form fields */}
             <div>
               <label className="font-mono text-[11px] uppercase font-bold text-zinc-700 block mb-1">
-                Your Name & Company
+                Your Name & Company *
               </label>
               <input
                 type="text"
@@ -1433,7 +1495,7 @@ function BookingModal({ isOpen, onClose }) {
 
             <div>
               <label className="font-mono text-[11px] uppercase font-bold text-zinc-700 block mb-1">
-                Direct Work Email
+                Direct Work Email *
               </label>
               <input
                 type="email"
@@ -1460,9 +1522,14 @@ function BookingModal({ isOpen, onClose }) {
 
             <button
               type="submit"
-              className="w-full mt-4 py-3.5 font-mono text-xs uppercase tracking-widest font-black text-zinc-950 bg-yellow-400 hover:bg-yellow-300 border-2 border-zinc-950 shadow-[3px_3px_0px_#18181b] transition-all"
+              disabled={submitting}
+              className={`w-full mt-4 py-3.5 font-mono text-xs uppercase tracking-widest font-black border-2 border-zinc-950 transition-all ${
+                submitting
+                  ? "bg-zinc-300 text-zinc-600 cursor-not-allowed"
+                  : "bg-yellow-400 text-zinc-950 hover:bg-yellow-300 shadow-[3px_3px_0px_#18181b]"
+              }`}
             >
-              Lock In Slot: {selectedDay} at {selectedTime} &rarr;
+              {submitting ? "Booking Slot..." : `Lock In Slot: ${selectedDay} at ${selectedTime} →`}
             </button>
           </form>
         )}
@@ -1556,49 +1623,38 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-zinc-100 text-zinc-900 font-sans selection:bg-yellow-400 selection:text-zinc-950 antialiased">
-      {/* Navigation */}
       <Navbar
         onOpenAudit={handleOpenAudit}
         onOpenBooking={handleOpenAudit}
       />
 
-      {/* Hero Section */}
       <HeroSection
         onOpenAudit={handleOpenAudit}
         onOpenBooking={handleOpenAudit}
       />
 
-      {/* Fluff vs Standard Comparison */}
       <ComparisonMatrix />
 
-      {/* Capabilities Spec Sheet (7 Services) */}
       <CapabilitiesSheet onOpenAudit={handleOpenAudit} />
 
-      {/* Mathematical ROI & Growth Simulator */}
       <RoiSimulator onOpenAudit={handleOpenAudit} />
 
-      {/* 24/7 AI Lead Funnel Simulator */}
       <AiFunnelSimulator />
 
-      {/* Transparent Sprint Pricing */}
       <PricingSection
         onOpenBooking={handleOpenAudit}
         onOpenAudit={handleOpenAudit}
       />
 
-      {/* Dynamic 48-Hour Teardown Form */}
       <TeardownSection />
 
-      {/* Clarifying FAQ Accordion */}
       <FaqSection />
 
-      {/* Industrial Footer */}
       <Footer
         onOpenAudit={handleOpenAudit}
         onOpenBooking={handleOpenAudit}
       />
 
-      {/* Interactive Booking / Teardown Modal */}
       <BookingModal
         isOpen={auditModalOpen}
         onClose={handleCloseAudit}
