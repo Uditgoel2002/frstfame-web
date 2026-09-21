@@ -153,7 +153,7 @@ const FLUFF_VS_STANDARD = [
   },
   {
     category: "Executive Reporting",
-    fluff: "Dense 40-page automated PDF reports loaded with vanity vanity metrics such as 'impressions', 'reach', and 'clicks'.",
+    fluff: "Dense 40-page automated PDF reports loaded with vanity metrics such as 'impressions', 'reach', and 'clicks'.",
     frstfame: "Weekly 1-page cash ledger displaying qualified pipeline volume, cost per closed contract, and net recognized revenue."
   },
   {
@@ -249,16 +249,16 @@ const FAQS = [
   }
 ];
 
-function LuxuryPill({ text, glowing = false, className = "" }) {
+function CherryPill({ text, glowing = false, className = "" }) {
   return (
     <span
-      className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-medium tracking-wide uppercase ${
+      className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-medium tracking-wide uppercase font-mono ${
         glowing
-          ? "bg-amber-400/10 text-amber-300 border border-amber-400/25 shadow-[0_0_15px_rgba(245,158,11,0.15)]"
-          : "bg-white/[0.04] text-zinc-300 border border-white/[0.08]"
+          ? "bg-[#7A1528]/10 text-[#7A1528] border border-[#7A1528]/25 shadow-[0_0_12px_rgba(122,21,40,0.1)]"
+          : "bg-stone-200/60 text-stone-700 border border-stone-300"
       } ${className}`}
     >
-      <span className={`w-1.5 h-1.5 rounded-full ${glowing ? "bg-amber-400 animate-pulse" : "bg-zinc-400"}`} />
+      <span className={`w-1.5 h-1.5 rounded-full ${glowing ? "bg-[#7A1528] animate-pulse" : "bg-stone-400"}`} />
       {text}
     </span>
   );
@@ -268,16 +268,16 @@ function SectionHeading({ tag, title, subtitle }) {
   return (
     <div className="mb-16 max-w-3xl">
       <div className="flex items-center gap-2.5 mb-3">
-        <span className="h-px w-6 bg-amber-400/60" />
-        <span className="text-xs uppercase tracking-[0.2em] font-mono text-amber-300/90 font-semibold">
+        <span className="h-px w-6 bg-[#7A1528]" />
+        <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#7A1528] font-bold">
           {tag}
         </span>
       </div>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white font-sans">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium tracking-tight text-[#1F1C1B]">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-zinc-400 text-base sm:text-lg leading-relaxed font-normal">
+        <p className="mt-4 text-[#57534E] text-base sm:text-lg leading-relaxed font-sans">
           {subtitle}
         </p>
       )}
@@ -289,65 +289,65 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-white/[0.08]">
+    <header className="sticky top-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-xl border-b border-[#E8E1D5]">
       {/* Executive Status Banner */}
-      <div className="bg-[#0e0f14] text-zinc-400 text-[11px] py-1.5 px-4 sm:px-8 border-b border-white/[0.06] flex items-center justify-between font-mono">
+      <div className="bg-[#1A080D] text-[#E8DCD9] text-[11px] py-1.5 px-4 sm:px-8 border-b border-[#2C0F17] flex items-center justify-between font-mono">
         <div className="flex items-center gap-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-          <span className="text-zinc-200 tracking-wider font-medium">
-            CAPACITY ALLOCATION: <span className="text-amber-300">{AGENCY_DATA.status}</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E54868] shadow-[0_0_8px_#E54868]" />
+          <span className="tracking-wider">
+            CAPACITY ALLOCATION: <span className="text-[#F5C2CB] font-bold">{AGENCY_DATA.status}</span>
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-6 text-zinc-400">
+        <div className="hidden md:flex items-center gap-6 text-[#C9B3B8]">
           <span>OPERATOR SLA: &lt; 2H</span>
-          <span className="text-zinc-700">|</span>
-          <span className="text-zinc-300 hover:text-white transition-colors">{AGENCY_DATA.directLine}</span>
+          <span className="text-[#4E222C]">|</span>
+          <span className="text-[#FDF2F4] hover:text-white transition-colors">{AGENCY_DATA.directLine}</span>
         </div>
       </div>
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-mono font-bold text-lg text-black shadow-[0_0_20px_rgba(245,158,11,0.25)] group-hover:scale-105 transition-transform duration-300">
+          <div className="w-10 h-10 rounded-xl bg-[#7A1528] flex items-center justify-center font-mono font-bold text-lg text-[#FAF8F5] shadow-[0_4px_16px_rgba(122,21,40,0.25)] group-hover:scale-105 transition-transform duration-300">
             f
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-white font-sans group-hover:text-amber-200 transition-colors">
+            <span className="text-xl font-serif font-bold tracking-tight text-[#1F1C1B] group-hover:text-[#7A1528] transition-colors">
               frstfame
             </span>
-            <span className="text-[10px] tracking-[0.2em] text-zinc-400 uppercase font-mono -mt-1">
+            <span className="text-[10px] tracking-[0.2em] text-[#78716C] uppercase font-mono -mt-1 font-semibold">
               REVENUE ENGINE
             </span>
           </div>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider font-mono text-zinc-300">
-          <a href="#capabilities" className="hover:text-white transition-colors">Capabilities</a>
-          <a href="#standard" className="hover:text-white transition-colors">The Standard</a>
-          <a href="#simulator" className="hover:text-white transition-colors">ROI Engine</a>
-          <a href="#funnel" className="hover:text-white transition-colors">AI Funnel</a>
-          <a href="#pricing" className="hover:text-white transition-colors">Sprints</a>
-          <a href="#teardown" className="hover:text-white transition-colors">Audit</a>
+        <nav className="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider font-mono text-[#57534E] font-medium">
+          <a href="#capabilities" className="hover:text-[#7A1528] transition-colors">Capabilities</a>
+          <a href="#standard" className="hover:text-[#7A1528] transition-colors">The Standard</a>
+          <a href="#simulator" className="hover:text-[#7A1528] transition-colors">ROI Engine</a>
+          <a href="#funnel" className="hover:text-[#7A1528] transition-colors">AI Funnel</a>
+          <a href="#pricing" className="hover:text-[#7A1528] transition-colors">Sprints</a>
+          <a href="#teardown" className="hover:text-[#7A1528] transition-colors">Audit</a>
         </nav>
 
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenBooking}
-            className="hidden sm:inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] transition-all"
+            className="hidden sm:inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider text-[#1F1C1B] hover:text-[#7A1528] bg-white border border-[#E8E1D5] shadow-sm hover:shadow transition-all"
           >
             Schedule 15m Call
           </button>
 
           <button
             onClick={onOpenAudit}
-            className="px-5 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider font-semibold text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:brightness-110 shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all"
+            className="px-5 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider font-semibold text-[#FAF8F5] bg-[#7A1528] hover:bg-[#631020] shadow-[0_4px_16px_rgba(122,21,40,0.25)] transition-all"
           >
             Request 48h Audit &rarr;
           </button>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2.5 rounded-lg bg-white/[0.05] border border-white/[0.1] text-zinc-300"
+            className="lg:hidden p-2.5 rounded-lg bg-white border border-[#E8E1D5] text-[#1F1C1B]"
             aria-label="Toggle menu"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,13 +362,13 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-[#0e0f14] border-t border-white/[0.08] px-4 py-6 space-y-3 font-mono text-xs uppercase text-zinc-300">
-          <a href="#capabilities" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-white/[0.05]">Capabilities Spec</a>
-          <a href="#standard" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-white/[0.05]">Fluff vs Standard</a>
-          <a href="#simulator" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-white/[0.05]">ROI Calculator</a>
-          <a href="#funnel" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-white/[0.05]">AI Funnel</a>
-          <a href="#pricing" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-white/[0.05]">Sprints & Retainers</a>
-          <a href="#teardown" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg text-amber-300 hover:bg-amber-400/10">Request 48h Teardown</a>
+        <div className="lg:hidden bg-[#FAF8F5] border-t border-[#E8E1D5] px-4 py-6 space-y-3 font-mono text-xs uppercase text-[#57534E]">
+          <a href="#capabilities" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-stone-100">Capabilities Spec</a>
+          <a href="#standard" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-stone-100">Fluff vs Standard</a>
+          <a href="#simulator" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-stone-100">ROI Calculator</a>
+          <a href="#funnel" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-stone-100">AI Funnel</a>
+          <a href="#pricing" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg hover:bg-stone-100">Sprints &amp; Retainers</a>
+          <a href="#teardown" onClick={() => setMobileOpen(false)} className="block py-2 px-3 rounded-lg text-[#7A1528] font-bold hover:bg-[#7A1528]/10">Request 48h Teardown</a>
         </div>
       )}
     </header>
@@ -377,34 +377,34 @@ function Navbar({ onOpenAudit, onOpenBooking }) {
 
 function HeroSection({ onOpenAudit, onOpenBooking }) {
   return (
-    <section className="relative pt-20 pb-28 md:pt-32 md:pb-40 bg-[#09090b] overflow-hidden border-b border-white/[0.08]">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-b from-amber-500/15 via-amber-500/5 to-transparent blur-[140px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+    <section className="relative pt-20 pb-28 md:pt-32 md:pb-40 bg-[#FAF8F5] overflow-hidden border-b border-[#E8E1D5]">
+      {/* Background Cherry Aura */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[380px] bg-gradient-to-b from-[#7A1528]/8 via-[#7A1528]/2 to-transparent blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(122,21,40,0.03)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-wrap items-center gap-3 mb-8">
-          <LuxuryPill text="OPERATOR ALLIANCE // SPEC 2026" glowing={true} />
-          <span className="text-xs font-mono text-zinc-400">
+          <CherryPill text="OPERATOR ALLIANCE // SPEC 2026" glowing={true} />
+          <span className="text-xs font-mono text-[#78716C] font-semibold">
             ENTERPRISE REVENUE INFRASTRUCTURE
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.08] max-w-5xl font-sans">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-medium tracking-tight text-[#1F1C1B] leading-[1.12] max-w-5xl">
           Digital Infrastructure &amp; Revenue Engineering for SMEs{" "}
-          <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent font-medium">
+          <span className="italic text-[#7A1528] font-serif font-normal">
             Who Value Execution Over Agency Fluff.
           </span>
         </h1>
 
-        <p className="mt-8 text-lg sm:text-xl text-zinc-400 max-w-3xl leading-relaxed font-normal">
+        <p className="mt-8 text-lg sm:text-xl text-[#57534E] max-w-3xl leading-relaxed font-sans">
           {AGENCY_DATA.subhead}
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
           <button
             onClick={onOpenAudit}
-            className="px-8 py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:brightness-110 shadow-[0_0_30px_rgba(245,158,11,0.25)] transition-all flex items-center justify-center gap-3"
+            className="px-8 py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-[#FAF8F5] bg-[#7A1528] hover:bg-[#631020] shadow-[0_10px_25px_rgba(122,21,40,0.22)] transition-all flex items-center justify-center gap-3"
           >
             <span>Claim 48-Hour Digital Teardown</span>
             <span>&rarr;</span>
@@ -412,36 +412,36 @@ function HeroSection({ onOpenAudit, onOpenBooking }) {
 
           <a
             href="#simulator"
-            className="px-8 py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-medium text-zinc-200 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] transition-all flex items-center justify-center gap-2"
+            className="px-8 py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-medium text-[#1F1C1B] hover:text-[#7A1528] bg-white border border-[#E8E1D5] shadow-sm hover:shadow transition-all flex items-center justify-center gap-2"
           >
             <span>Launch Live ROI Calculator &darr;</span>
           </a>
         </div>
 
-        {/* Executive KPI Cards */}
+        {/* Executive Metric Cards */}
         <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm hover:border-white/[0.16] transition-colors">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 block">Benchmark 01</span>
-            <div className="text-3xl sm:text-4xl font-semibold text-white mt-2 font-mono">3.8x</div>
-            <span className="text-xs text-zinc-400 mt-2 block font-sans">Audited 90-Day Enterprise ROAS</span>
+          <div className="p-6 rounded-2xl bg-white border border-[#E8E1D5] shadow-sm hover:border-[#7A1528]/30 transition-colors">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#78716C] block font-semibold">Benchmark 01</span>
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1C1B] mt-2">3.8x</div>
+            <span className="text-xs text-[#57534E] mt-2 block font-sans">Audited 90-Day Enterprise ROAS</span>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm hover:border-white/[0.16] transition-colors">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 block">Benchmark 02</span>
-            <div className="text-3xl sm:text-4xl font-semibold text-amber-400 mt-2 font-mono">&lt; 45s</div>
-            <span className="text-xs text-zinc-400 mt-2 block font-sans">Autonomous AI Inbound Triage SLA</span>
+          <div className="p-6 rounded-2xl bg-white border border-[#E8E1D5] shadow-sm hover:border-[#7A1528]/30 transition-colors">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#78716C] block font-semibold">Benchmark 02</span>
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-[#7A1528] mt-2">&lt; 45s</div>
+            <span className="text-xs text-[#57534E] mt-2 block font-sans">Autonomous AI Inbound Triage SLA</span>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm hover:border-white/[0.16] transition-colors">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 block">Benchmark 03</span>
-            <div className="text-3xl sm:text-4xl font-semibold text-white mt-2 font-mono">100%</div>
-            <span className="text-xs text-zinc-400 mt-2 block font-sans">Client-Owned IP &amp; Code Sovereignty</span>
+          <div className="p-6 rounded-2xl bg-white border border-[#E8E1D5] shadow-sm hover:border-[#7A1528]/30 transition-colors">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#78716C] block font-semibold">Benchmark 03</span>
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1C1B] mt-2">100%</div>
+            <span className="text-xs text-[#57534E] mt-2 block font-sans">Client-Owned IP &amp; Code Sovereignty</span>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm hover:border-white/[0.16] transition-colors">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 block">Benchmark 04</span>
-            <div className="text-3xl sm:text-4xl font-semibold text-white mt-2 font-mono">0 Days</div>
-            <span className="text-xs text-zinc-400 mt-2 block font-sans">Lock-In Retainer Penalties</span>
+          <div className="p-6 rounded-2xl bg-white border border-[#E8E1D5] shadow-sm hover:border-[#7A1528]/30 transition-colors">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#78716C] block font-semibold">Benchmark 04</span>
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1C1B] mt-2">0 Days</div>
+            <span className="text-xs text-[#57534E] mt-2 block font-sans">Lock-In Retainer Penalties</span>
           </div>
         </div>
       </div>
@@ -451,7 +451,7 @@ function HeroSection({ onOpenAudit, onOpenBooking }) {
 
 function ComparisonMatrix() {
   return (
-    <section id="standard" className="py-28 bg-[#0c0d12] border-b border-white/[0.08]">
+    <section id="standard" className="py-28 bg-[#F3EFEA] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="THE OPERATIONAL GAP"
@@ -459,37 +459,37 @@ function ComparisonMatrix() {
           subtitle="Most enterprises have spent $3,000 to $6,000 every month on agencies that delivered vanity PDF reports once every 30 days. Here is our direct contrast."
         />
 
-        <div className="rounded-3xl border border-white/[0.1] bg-[#09090b]/80 backdrop-blur-xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-          <div className="grid grid-cols-1 md:grid-cols-12 bg-white/[0.03] border-b border-white/[0.08] text-xs font-mono uppercase tracking-wider py-4 px-6 text-zinc-400">
+        <div className="rounded-3xl border border-[#E8E1D5] bg-white overflow-hidden shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-12 bg-[#FAF8F5] border-b border-[#E8E1D5] text-xs font-mono uppercase tracking-wider py-4 px-6 text-[#78716C] font-semibold">
             <div className="md:col-span-3">Operational Axis</div>
-            <div className="md:col-span-4 text-rose-400/90 flex items-center gap-2">
+            <div className="md:col-span-4 text-stone-500 flex items-center gap-2">
               <span>✕ Traditional Agency Retainer</span>
             </div>
-            <div className="md:col-span-5 text-amber-300 flex items-center gap-2">
+            <div className="md:col-span-5 text-[#7A1528] flex items-center gap-2">
               <span>✦ The frstfame Standard</span>
             </div>
           </div>
 
-          <div className="divide-y divide-white/[0.06]">
+          <div className="divide-y divide-[#E8E1D5]">
             {FLUFF_VS_STANDARD.map((row, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-1 md:grid-cols-12 p-6 gap-4 md:gap-6 hover:bg-white/[0.02] transition-colors items-start"
+                className="grid grid-cols-1 md:grid-cols-12 p-6 gap-4 md:gap-6 hover:bg-[#FAF8F5] transition-colors items-start"
               >
                 <div className="md:col-span-3">
-                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest block mb-1">
+                  <span className="font-mono text-[10px] text-[#78716C] uppercase tracking-widest block mb-1 font-semibold">
                     PROTOCOL 0{idx + 1}
                   </span>
-                  <span className="font-sans font-medium text-white text-base">
+                  <span className="font-serif font-bold text-[#1F1C1B] text-base">
                     {row.category}
                   </span>
                 </div>
 
-                <div className="md:col-span-4 text-sm text-zinc-400 leading-relaxed">
+                <div className="md:col-span-4 text-sm text-[#57534E] leading-relaxed">
                   {row.fluff}
                 </div>
 
-                <div className="md:col-span-5 text-sm text-zinc-200 font-medium leading-relaxed bg-amber-400/[0.03] p-4 rounded-xl border border-amber-400/10">
+                <div className="md:col-span-5 text-sm text-[#1F1C1B] font-medium leading-relaxed bg-[#7A1528]/[0.04] p-4 rounded-xl border border-[#7A1528]/15">
                   {row.frstfame}
                 </div>
               </div>
@@ -509,7 +509,7 @@ function CapabilitiesSheet({ onOpenAudit }) {
   }, [activeTab]);
 
   return (
-    <section id="capabilities" className="py-28 bg-[#09090b] border-b border-white/[0.08]">
+    <section id="capabilities" className="py-28 bg-[#FAF8F5] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="ENGINEERING ARCHITECTURE"
@@ -528,25 +528,25 @@ function CapabilitiesSheet({ onOpenAudit }) {
                   onClick={() => setActiveTab(cap.id)}
                   className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between ${
                     active
-                      ? "bg-white/[0.07] border-amber-400/40 text-white shadow-[0_0_25px_rgba(245,158,11,0.08)]"
-                      : "bg-white/[0.02] border-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]"
+                      ? "bg-white border-[#7A1528] text-[#1F1C1B] shadow-[0_4px_16px_rgba(122,21,40,0.08)] translate-x-1"
+                      : "bg-[#F3EFEA]/60 border-[#E8E1D5] text-[#57534E] hover:bg-white hover:text-[#1F1C1B]"
                   }`}
                 >
                   <div>
                     <div className="flex items-center gap-2.5">
-                      <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/[0.06] text-zinc-300 font-medium">
+                      <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-stone-200 text-stone-700 font-semibold">
                         {cap.code}
                       </span>
-                      <span className="font-mono text-[11px] text-zinc-400 uppercase tracking-wide">
+                      <span className="font-mono text-[11px] text-[#78716C] uppercase tracking-wide">
                         {cap.category}
                       </span>
                     </div>
-                    <div className="text-base font-medium text-white mt-1.5 font-sans">
+                    <div className="text-base font-serif font-bold text-[#1F1C1B] mt-1.5">
                       {cap.name}
                     </div>
                   </div>
 
-                  <span className="text-xs font-mono uppercase text-amber-300/80">
+                  <span className="text-xs font-mono uppercase text-[#7A1528] font-bold">
                     {active ? "ACTIVE" : "INSPECT"}
                   </span>
                 </button>
@@ -555,35 +555,35 @@ function CapabilitiesSheet({ onOpenAudit }) {
           </div>
 
           {/* Right Spec Card */}
-          <div className="lg:col-span-7 rounded-2xl bg-white/[0.02] border border-white/[0.1] p-8 backdrop-blur-xl shadow-2xl">
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
+          <div className="lg:col-span-7 rounded-2xl bg-white border border-[#E8E1D5] p-8 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#E8E1D5]">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span className="font-mono text-xs uppercase tracking-wider text-zinc-300">
+                <span className="w-2 h-2 rounded-full bg-[#7A1528]" />
+                <span className="font-mono text-xs uppercase tracking-wider text-[#57534E] font-semibold">
                   {current.code} // Granular Spec
                 </span>
               </div>
-              <LuxuryPill text={current.benchmark} glowing={true} />
+              <CherryPill text={current.benchmark} glowing={true} />
             </div>
 
             <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-white font-sans">
+              <h3 className="text-2xl font-serif font-bold text-[#1F1C1B]">
                 {current.name}
               </h3>
-              <p className="mt-3 text-zinc-400 text-sm leading-relaxed">
+              <p className="mt-3 text-[#57534E] text-sm leading-relaxed">
                 {current.goal}
               </p>
             </div>
 
-            <div className="mt-6 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-              <span className="font-mono text-[10px] uppercase text-zinc-400 block mb-2 tracking-wider">
+            <div className="mt-6 p-4 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5]">
+              <span className="font-mono text-[10px] uppercase text-[#78716C] block mb-2 tracking-wider font-semibold">
                 Operational Tech Stack &amp; Gateway:
               </span>
               <div className="flex flex-wrap gap-2">
                 {current.stack.map((item, i) => (
                   <span
                     key={i}
-                    className="font-mono text-xs bg-white/[0.04] text-zinc-200 border border-white/[0.08] px-3 py-1 rounded-md"
+                    className="font-mono text-xs bg-white text-[#1F1C1B] border border-[#E8E1D5] px-3 py-1 rounded-md font-medium"
                   >
                     #{item}
                   </span>
@@ -592,13 +592,13 @@ function CapabilitiesSheet({ onOpenAudit }) {
             </div>
 
             <div className="mt-6">
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-300 block mb-3 font-semibold">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#1F1C1B] block mb-3 font-bold">
                 Tangible System Deliverables
               </span>
               <ul className="space-y-3">
                 {current.deliverables.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <span className="w-4 h-4 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center font-mono text-[10px] text-amber-300 shrink-0 mt-0.5">
+                  <li key={idx} className="flex items-start gap-3 text-sm text-[#57534E]">
+                    <span className="w-4 h-4 rounded-full bg-[#7A1528]/10 border border-[#7A1528]/30 flex items-center justify-center font-mono text-[10px] text-[#7A1528] shrink-0 mt-0.5 font-bold">
                       ✓
                     </span>
                     <span>{item}</span>
@@ -607,15 +607,15 @@ function CapabilitiesSheet({ onOpenAudit }) {
               </ul>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="mt-8 pt-6 border-t border-[#E8E1D5] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="font-mono text-[10px] uppercase text-zinc-400 block">SLA Commitment</span>
-                <span className="font-mono text-xs font-semibold text-white">{current.turnaround}</span>
+                <span className="font-mono text-[10px] uppercase text-[#78716C] block font-semibold">SLA Commitment</span>
+                <span className="font-mono text-xs font-bold text-[#1F1C1B]">{current.turnaround}</span>
               </div>
 
               <button
                 onClick={onOpenAudit}
-                className="px-6 py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:brightness-110 transition-all"
+                className="px-6 py-3 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold text-[#FAF8F5] bg-[#7A1528] hover:bg-[#631020] transition-all"
               >
                 Inquire on this module &rarr;
               </button>
@@ -654,7 +654,7 @@ function RoiSimulator({ onOpenAudit }) {
   }, [spend, dealValue, traffic, convRate]);
 
   return (
-    <section id="simulator" className="py-28 bg-[#0c0d12] border-b border-white/[0.08]">
+    <section id="simulator" className="py-28 bg-[#F3EFEA] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="MATHEMATICAL UNIT ECONOMICS"
@@ -663,20 +663,20 @@ function RoiSimulator({ onOpenAudit }) {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          <div className="lg:col-span-6 rounded-2xl bg-[#09090b] border border-white/[0.1] p-8 space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-300">
+          <div className="lg:col-span-6 rounded-2xl bg-white border border-[#E8E1D5] p-8 space-y-6 shadow-sm">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E8E1D5]">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#1F1C1B] font-bold">
                 Input Metrics
               </span>
-              <LuxuryPill text="USD ENGINE" />
+              <CherryPill text="USD ENGINE" />
             </div>
 
             <div>
               <div className="flex justify-between items-baseline mb-2">
-                <label className="text-xs uppercase font-mono text-zinc-300">
+                <label className="text-xs uppercase font-mono text-[#57534E] font-semibold">
                   Monthly Ad Spend (Google &amp; Meta)
                 </label>
-                <span className="font-mono text-amber-300 font-semibold text-lg">
+                <span className="font-mono text-[#7A1528] font-bold text-lg">
                   ${spend.toLocaleString()}
                 </span>
               </div>
@@ -687,16 +687,16 @@ function RoiSimulator({ onOpenAudit }) {
                 step="250"
                 value={spend}
                 onChange={(e) => setSpend(Number(e.target.value))}
-                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#7A1528]"
               />
             </div>
 
             <div>
               <div className="flex justify-between items-baseline mb-2">
-                <label className="text-xs uppercase font-mono text-zinc-300">
+                <label className="text-xs uppercase font-mono text-[#57534E] font-semibold">
                   Average Deal / Contract Value
                 </label>
-                <span className="font-mono text-white font-semibold text-lg">
+                <span className="font-mono text-[#1F1C1B] font-bold text-lg">
                   ${dealValue.toLocaleString()}
                 </span>
               </div>
@@ -707,16 +707,16 @@ function RoiSimulator({ onOpenAudit }) {
                 step="100"
                 value={dealValue}
                 onChange={(e) => setDealValue(Number(e.target.value))}
-                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#7A1528]"
               />
             </div>
 
             <div>
               <div className="flex justify-between items-baseline mb-2">
-                <label className="text-xs uppercase font-mono text-zinc-300">
+                <label className="text-xs uppercase font-mono text-[#57534E] font-semibold">
                   Current Monthly Visitors
                 </label>
-                <span className="font-mono text-white font-semibold text-lg">
+                <span className="font-mono text-[#1F1C1B] font-bold text-lg">
                   {traffic.toLocaleString()}
                 </span>
               </div>
@@ -727,16 +727,16 @@ function RoiSimulator({ onOpenAudit }) {
                 step="500"
                 value={traffic}
                 onChange={(e) => setTraffic(Number(e.target.value))}
-                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#7A1528]"
               />
             </div>
 
             <div>
               <div className="flex justify-between items-baseline mb-2">
-                <label className="text-xs uppercase font-mono text-zinc-300">
+                <label className="text-xs uppercase font-mono text-[#57534E] font-semibold">
                   Lead Conversion Rate
                 </label>
-                <span className="font-mono text-amber-300 font-semibold text-lg">
+                <span className="font-mono text-[#7A1528] font-bold text-lg">
                   {convRate}%
                 </span>
               </div>
@@ -747,60 +747,60 @@ function RoiSimulator({ onOpenAudit }) {
                 step="0.1"
                 value={convRate}
                 onChange={(e) => setConvRate(Number(e.target.value))}
-                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#7A1528]"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-6 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.1] p-8 flex flex-col justify-between backdrop-blur-xl">
+          <div className="lg:col-span-6 rounded-2xl bg-[#1A080D] border border-[#2C0F17] p-8 flex flex-col justify-between text-[#FAF8F5] shadow-xl">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
-                <span className="text-xs font-mono uppercase tracking-wider text-amber-300">
+              <div className="flex items-center justify-between pb-4 border-b border-[#2C0F17] mb-6">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#F5C2CB] font-semibold">
                   90-Day Conservative Forecast
                 </span>
-                <span className="text-xs font-mono bg-amber-400/10 text-amber-300 border border-amber-400/20 px-2.5 py-1 rounded-full">
+                <span className="text-xs font-mono bg-[#7A1528] text-white px-2.5 py-1 rounded-full font-bold">
                   ROAS: {metrics.roas}x
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="p-4 rounded-xl bg-black/40 border border-white/[0.06]">
-                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider block">
+                <div className="p-4 rounded-xl bg-[#260C14] border border-[#3E1420]">
+                  <span className="font-mono text-[10px] text-[#C9B3B8] uppercase tracking-wider block font-semibold">
                     Qualified Inquiries
                   </span>
-                  <div className="text-3xl font-semibold text-white mt-1 font-mono">
+                  <div className="text-3xl font-serif font-bold text-white mt-1">
                     {metrics.leads}
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-black/40 border border-white/[0.06]">
-                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider block">
+                <div className="p-4 rounded-xl bg-[#260C14] border border-[#3E1420]">
+                  <span className="font-mono text-[10px] text-[#C9B3B8] uppercase tracking-wider block font-semibold">
                     Closed Deals (~24%)
                   </span>
-                  <div className="text-3xl font-semibold text-amber-300 mt-1 font-mono">
+                  <div className="text-3xl font-serif font-bold text-[#F5C2CB] mt-1">
                     {metrics.closedDeals}
                   </div>
                 </div>
               </div>
 
-              <div className="p-5 rounded-xl bg-black/40 border border-white/[0.06] space-y-3 font-mono text-xs mb-6">
-                <div className="flex justify-between items-center pb-2 border-b border-white/[0.06]">
-                  <span className="text-zinc-400">Projected Pipeline Lift:</span>
-                  <span className="font-bold text-base text-amber-300">
+              <div className="p-5 rounded-xl bg-[#260C14] border border-[#3E1420] space-y-3 font-mono text-xs mb-6">
+                <div className="flex justify-between items-center pb-2 border-b border-[#3E1420]">
+                  <span className="text-[#C9B3B8]">Projected Pipeline Lift:</span>
+                  <span className="font-bold text-base text-[#F5C2CB]">
                     +${metrics.projectedLift.toLocaleString()} / mo
                   </span>
                 </div>
 
-                <div className="flex justify-between items-center pb-2 border-b border-white/[0.06]">
-                  <span className="text-zinc-400">Prevented Ad Bleed:</span>
-                  <span className="text-zinc-200">
+                <div className="flex justify-between items-center pb-2 border-b border-[#3E1420]">
+                  <span className="text-[#C9B3B8]">Prevented Ad Bleed:</span>
+                  <span className="text-white font-medium">
                     ~${metrics.preventedWaste.toLocaleString()} / mo
                   </span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-zinc-400">Executive Hours Saved:</span>
-                  <span className="text-amber-300">
+                  <span className="text-[#C9B3B8]">Executive Hours Saved:</span>
+                  <span className="text-[#F5C2CB] font-bold">
                     ~{metrics.hoursSaved} Hours / week
                   </span>
                 </div>
@@ -809,7 +809,7 @@ function RoiSimulator({ onOpenAudit }) {
 
             <button
               onClick={onOpenAudit}
-              className="w-full py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-black bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:brightness-110 transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-[#1A080D] bg-[#FAF8F5] hover:bg-white transition-all flex items-center justify-center gap-2 shadow"
             >
               <span>Verify Projections in 48-Hour Audit</span>
               <span>&rarr;</span>
@@ -874,7 +874,7 @@ function AiFunnelSimulator() {
   };
 
   return (
-    <section id="funnel" className="py-28 bg-[#09090b] border-b border-white/[0.08]">
+    <section id="funnel" className="py-28 bg-[#FAF8F5] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="AUTONOMOUS REVENUE SYSTEMS"
@@ -882,11 +882,11 @@ function AiFunnelSimulator() {
           subtitle="Watch our unified performance marketing and conversational AI stack capture, qualify, and book enterprise prospects while your executive team is off the clock."
         />
 
-        <div className="rounded-3xl border border-white/[0.1] bg-[#0c0d12] p-6 sm:p-10 shadow-2xl">
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
+        <div className="rounded-3xl border border-[#E8E1D5] bg-white p-6 sm:p-10 shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#E8E1D5]">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-300">
+              <span className="w-2 h-2 rounded-full bg-[#7A1528] animate-ping" />
+              <span className="font-mono text-xs uppercase tracking-wider text-[#57534E] font-semibold">
                 STATE: {simulating ? "SIMULATION EXECUTING..." : "SYSTEM IDLE // READY"}
               </span>
             </div>
@@ -896,8 +896,8 @@ function AiFunnelSimulator() {
               disabled={simulating}
               className={`px-5 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wider font-semibold transition-all ${
                 simulating
-                  ? "bg-white/[0.05] text-zinc-400 cursor-not-allowed"
-                  : "bg-amber-400 text-black hover:bg-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.25)]"
+                  ? "bg-stone-200 text-stone-500 cursor-not-allowed"
+                  : "bg-[#7A1528] text-white hover:bg-[#631020] shadow-[0_4px_16px_rgba(122,21,40,0.2)]"
               }`}
             >
               {simulating ? "Running Stream..." : "Run Inbound Simulation ▶"}
@@ -913,23 +913,23 @@ function AiFunnelSimulator() {
                   onClick={() => !simulating && setActiveStep(idx)}
                   className={`p-5 rounded-xl border transition-all cursor-pointer ${
                     isCurrent
-                      ? "bg-white/[0.07] border-amber-400/50 shadow-[0_0_20px_rgba(245,158,11,0.1)]"
-                      : "bg-white/[0.02] border-white/[0.06] hover:border-white/[0.12]"
+                      ? "bg-[#FAF8F5] border-[#7A1528] shadow-[0_4px_16px_rgba(122,21,40,0.08)]"
+                      : "bg-white border-[#E8E1D5] hover:border-stone-400"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs font-bold text-amber-300">
+                    <span className="font-mono text-xs font-bold text-[#7A1528]">
                       STEP {s.num}
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-zinc-400">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-100 text-[#78716C] font-semibold">
                       {s.tag}
                     </span>
                   </div>
 
-                  <h4 className="font-medium text-white text-sm">
+                  <h4 className="font-serif font-bold text-[#1F1C1B] text-sm">
                     {s.title}
                   </h4>
-                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                  <p className="text-xs text-[#57534E] mt-2 leading-relaxed">
                     {s.desc}
                   </p>
                 </div>
@@ -937,12 +937,12 @@ function AiFunnelSimulator() {
             })}
           </div>
 
-          <div className="mt-8 p-5 rounded-xl bg-black/60 border border-white/[0.06] font-mono text-xs text-zinc-300">
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] mb-3 text-[11px] text-zinc-400">
+          <div className="mt-8 p-5 rounded-xl bg-[#1A080D] border border-[#2C0F17] font-mono text-xs text-[#E8DCD9]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#2C0F17] mb-3 text-[11px] text-[#C9B3B8]">
               <span>REAL-TIME TELEMETRY: STEP {steps[activeStep].num}</span>
-              <span className="text-amber-300 font-semibold">LATENCY: 38ms</span>
+              <span className="text-[#F5C2CB] font-bold">LATENCY: 38ms</span>
             </div>
-            <p className="text-amber-300 font-medium">&gt; {steps[activeStep].status}</p>
+            <p className="text-[#F5C2CB] font-medium">&gt; {steps[activeStep].status}</p>
           </div>
         </div>
       </div>
@@ -952,7 +952,7 @@ function AiFunnelSimulator() {
 
 function PricingSection({ onOpenBooking, onOpenAudit }) {
   return (
-    <section id="pricing" className="py-28 bg-[#0c0d12] border-b border-white/[0.08]">
+    <section id="pricing" className="py-28 bg-[#F3EFEA] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="TRANSPARENT CAPITAL ALLOCATIONS"
@@ -966,58 +966,58 @@ function PricingSection({ onOpenBooking, onOpenAudit }) {
               key={plan.id}
               className={`p-8 rounded-3xl border flex flex-col justify-between transition-all ${
                 plan.popular
-                  ? "bg-gradient-to-b from-white/[0.06] to-white/[0.02] border-amber-400/40 shadow-[0_0_50px_rgba(245,158,11,0.1)] relative"
-                  : "bg-white/[0.02] border-white/[0.08] hover:border-white/[0.14]"
+                  ? "bg-white border-[#7A1528] shadow-[0_12px_32px_rgba(122,21,40,0.12)] relative -translate-y-1"
+                  : "bg-white border-[#E8E1D5] hover:border-stone-400"
               }`}
             >
               <div>
                 {plan.popular && (
                   <div className="mb-4">
-                    <LuxuryPill text="MOST REQUESTED ENGAGEMENT" glowing={true} />
+                    <CherryPill text="MOST REQUESTED ENGAGEMENT" glowing={true} />
                   </div>
                 )}
 
-                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 block">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#78716C] block font-semibold">
                   {plan.badge}
                 </span>
 
-                <h3 className="text-2xl font-semibold text-white font-sans mt-2">
+                <h3 className="text-2xl font-serif font-bold text-[#1F1C1B] mt-2">
                   {plan.name}
                 </h3>
 
-                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                <p className="text-xs text-[#57534E] mt-2 leading-relaxed">
                   {plan.desc}
                 </p>
 
-                <div className="mt-8 pt-6 border-t border-white/[0.08]">
-                  <div className="text-4xl font-semibold text-white font-mono">
+                <div className="mt-8 pt-6 border-t border-[#E8E1D5]">
+                  <div className="text-4xl font-serif font-bold text-[#1F1C1B]">
                     {plan.price}
                   </div>
-                  <div className="text-xs text-zinc-400 mt-1 font-mono">
+                  <div className="text-xs text-[#78716C] mt-1 font-mono font-semibold">
                     {plan.cadence}
                   </div>
                 </div>
 
                 <div className="mt-8 space-y-3">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 block">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#78716C] block font-bold">
                     Deliverables Spec Sheet:
                   </span>
                   {plan.features.map((feat, i) => (
-                    <div key={i} className="flex items-start gap-3 text-xs text-zinc-300">
-                      <span className="text-amber-400 shrink-0 mt-0.5">✦</span>
+                    <div key={i} className="flex items-start gap-3 text-xs text-[#57534E]">
+                      <span className="text-[#7A1528] shrink-0 mt-0.5 font-bold">✦</span>
                       <span>{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/[0.08]">
+              <div className="mt-8 pt-6 border-t border-[#E8E1D5]">
                 <button
                   onClick={plan.popular ? onOpenAudit : onOpenBooking}
                   className={`w-full py-3.5 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold transition-all ${
                     plan.popular
-                      ? "bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 text-black hover:brightness-110 shadow-[0_0_25px_rgba(245,158,11,0.2)]"
-                      : "bg-white/[0.05] text-zinc-200 hover:bg-white/[0.08] border border-white/[0.1]"
+                      ? "bg-[#7A1528] text-[#FAF8F5] hover:bg-[#631020] shadow-[0_4px_16px_rgba(122,21,40,0.25)]"
+                      : "bg-[#FAF8F5] text-[#1F1C1B] hover:bg-white border border-[#E8E1D5]"
                   }`}
                 >
                   {plan.cta} &rarr;
@@ -1093,7 +1093,7 @@ function TeardownSection() {
   };
 
   return (
-    <section id="teardown" className="py-28 bg-[#09090b] border-b border-white/[0.08]">
+    <section id="teardown" className="py-28 bg-[#FAF8F5] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="AUDITED MEMORANDUM"
@@ -1101,16 +1101,16 @@ function TeardownSection() {
           subtitle="Submit your company information below. Our senior operators analyze ad waste, conversion friction, and organic visibility gaps before preparing a private executive action plan."
         />
 
-        <div className="rounded-3xl border border-white/[0.1] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 sm:p-12 max-w-4xl mx-auto backdrop-blur-2xl shadow-2xl">
+        <div className="rounded-3xl border border-[#E8E1D5] bg-white p-8 sm:p-12 max-w-4xl mx-auto shadow-sm">
           {submitted ? (
             <div className="text-center py-12">
-              <div className="w-14 h-14 rounded-full bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center font-mono text-xl text-emerald-400 mx-auto mb-4">
+              <div className="w-14 h-14 rounded-full bg-[#7A1528]/10 border border-[#7A1528]/30 flex items-center justify-center font-mono text-xl text-[#7A1528] mx-auto mb-4 font-bold">
                 ✓
               </div>
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-2xl font-serif font-bold text-[#1F1C1B]">
                 Teardown Audit Commissioned.
               </h3>
-              <p className="mt-3 text-sm text-zinc-400 max-w-md mx-auto">
+              <p className="mt-3 text-sm text-[#57534E] max-w-md mx-auto">
                 Our operator cohort has received your profile. We will inspect your digital infrastructure and transmit your private teardown memorandum within 48 hours.
               </p>
               <button
@@ -1121,7 +1121,7 @@ function TeardownSection() {
                   setEmail("");
                   setPhone("");
                 }}
-                className="mt-6 text-xs font-mono uppercase text-amber-300 hover:text-amber-200 underline underline-offset-4"
+                className="mt-6 text-xs font-mono uppercase text-[#7A1528] hover:underline underline-offset-4 font-bold"
               >
                 Submit another audit request &rarr;
               </button>
@@ -1130,7 +1130,7 @@ function TeardownSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs uppercase font-mono text-zinc-400 block mb-2">
+                  <label className="text-xs uppercase font-mono text-[#57534E] block mb-2 font-semibold">
                     Company / Trade Name *
                   </label>
                   <input
@@ -1139,12 +1139,12 @@ function TeardownSection() {
                     placeholder="Apex Industrial Solutions"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    className="w-full p-3.5 rounded-xl bg-black/40 border border-white/[0.1] focus:border-amber-400/60 text-white font-mono text-xs outline-none transition-colors placeholder:text-zinc-600"
+                    className="w-full p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] focus:border-[#7A1528] text-[#1F1C1B] font-mono text-xs outline-none transition-colors placeholder:text-stone-400"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase font-mono text-zinc-400 block mb-2">
+                  <label className="text-xs uppercase font-mono text-[#57534E] block mb-2 font-semibold">
                     Direct Work Email *
                   </label>
                   <input
@@ -1153,12 +1153,12 @@ function TeardownSection() {
                     placeholder="founder@apexindustrial.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-3.5 rounded-xl bg-black/40 border border-white/[0.1] focus:border-amber-400/60 text-white font-mono text-xs outline-none transition-colors placeholder:text-zinc-600"
+                    className="w-full p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] focus:border-[#7A1528] text-[#1F1C1B] font-mono text-xs outline-none transition-colors placeholder:text-stone-400"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase font-mono text-zinc-400 block mb-2">
+                  <label className="text-xs uppercase font-mono text-[#57534E] block mb-2 font-semibold">
                     Website URL
                   </label>
                   <input
@@ -1166,12 +1166,12 @@ function TeardownSection() {
                     placeholder="https://apexindustrial.com"
                     value={website}
                     onChange={(e) => setWebsite(e.target.value)}
-                    className="w-full p-3.5 rounded-xl bg-black/40 border border-white/[0.1] focus:border-amber-400/60 text-white font-mono text-xs outline-none transition-colors placeholder:text-zinc-600"
+                    className="w-full p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] focus:border-[#7A1528] text-[#1F1C1B] font-mono text-xs outline-none transition-colors placeholder:text-stone-400"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase font-mono text-zinc-400 block mb-2">
+                  <label className="text-xs uppercase font-mono text-[#57534E] block mb-2 font-semibold">
                     Direct Phone / Mobile
                   </label>
                   <input
@@ -1179,20 +1179,20 @@ function TeardownSection() {
                     placeholder="+1 (555) 019-2834"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full p-3.5 rounded-xl bg-black/40 border border-white/[0.1] focus:border-amber-400/60 text-white font-mono text-xs outline-none transition-colors placeholder:text-zinc-600"
+                    className="w-full p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] focus:border-[#7A1528] text-[#1F1C1B] font-mono text-xs outline-none transition-colors placeholder:text-stone-400"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs uppercase font-mono text-zinc-400 block mb-2">
+                  <label className="text-xs uppercase font-mono text-[#57534E] block mb-2 font-semibold">
                     Estimated Marketing Budget
                   </label>
                   <select
                     value={spend}
                     onChange={(e) => setSpend(e.target.value)}
-                    className="w-full p-3.5 rounded-xl bg-[#12131a] border border-white/[0.1] focus:border-amber-400/60 text-white font-mono text-xs outline-none transition-colors"
+                    className="w-full p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] focus:border-[#7A1528] text-[#1F1C1B] font-mono text-xs outline-none transition-colors"
                   >
                     <option value="Under $1,500 / mo">Under $1,500 / mo</option>
                     <option value="$1,500 - $3,500 / mo">$1,500 - $3,500 / mo</option>
@@ -1202,13 +1202,13 @@ function TeardownSection() {
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase font-mono text-zinc-400 block mb-2">
+                  <label className="text-xs uppercase font-mono text-[#57534E] block mb-2 font-semibold">
                     Primary Operational Bottleneck
                   </label>
                   <select
                     value={bottleneck}
                     onChange={(e) => setBottleneck(e.target.value)}
-                    className="w-full p-3.5 rounded-xl bg-[#12131a] border border-white/[0.1] focus:border-amber-400/60 text-white font-mono text-xs outline-none transition-colors"
+                    className="w-full p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] focus:border-[#7A1528] text-[#1F1C1B] font-mono text-xs outline-none transition-colors"
                   >
                     <option value="ppc_waste">PPC &amp; Paid Media Spend Leakage</option>
                     <option value="seo_invisible">Poor Google Local 3-Pack Authority</option>
@@ -1218,11 +1218,11 @@ function TeardownSection() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-amber-400/[0.04] border border-amber-400/20 font-mono text-xs">
-                <span className="text-amber-300 font-medium uppercase block mb-1">
+              <div className="p-4 rounded-xl bg-[#7A1528]/[0.05] border border-[#7A1528]/20 font-mono text-xs">
+                <span className="text-[#7A1528] font-bold uppercase block mb-1">
                   [ Diagnostic Notice: {bottleneckNotes[bottleneck].tag} ]
                 </span>
-                <span className="text-zinc-300">
+                <span className="text-[#57534E]">
                   {bottleneckNotes[bottleneck].note}
                 </span>
               </div>
@@ -1232,8 +1232,8 @@ function TeardownSection() {
                 disabled={submitting}
                 className={`w-full py-4 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold transition-all ${
                   submitting
-                    ? "bg-white/[0.06] text-zinc-400 cursor-not-allowed"
-                    : "bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 text-black hover:brightness-110 shadow-[0_0_30px_rgba(245,158,11,0.25)]"
+                    ? "bg-stone-300 text-stone-600 cursor-not-allowed"
+                    : "bg-[#7A1528] text-[#FAF8F5] hover:bg-[#631020] shadow-[0_4px_20px_rgba(122,21,40,0.25)]"
                 }`}
               >
                 {submitting ? "Transmitting Profile..." : "Dispatch 48-Hour Teardown Request →"}
@@ -1250,7 +1250,7 @@ function FaqSection() {
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
-    <section id="faq" className="py-28 bg-[#0c0d12] border-b border-white/[0.08]">
+    <section id="faq" className="py-28 bg-[#F3EFEA] border-b border-[#E8E1D5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="EXECUTIVE CLARITY"
@@ -1258,7 +1258,7 @@ function FaqSection() {
           subtitle="Candid answers regarding intellectual property, account custody, tooling investments, and operational cadence."
         />
 
-        <div className="rounded-3xl border border-white/[0.1] bg-[#09090b] divide-y divide-white/[0.06] overflow-hidden shadow-2xl">
+        <div className="rounded-3xl border border-[#E8E1D5] bg-white divide-y divide-[#E8E1D5] overflow-hidden shadow-sm">
           {FAQS.map((faq, i) => {
             const isOpen = openIdx === i;
             return (
@@ -1267,16 +1267,16 @@ function FaqSection() {
                   onClick={() => setOpenIdx(isOpen ? -1 : i)}
                   className="w-full text-left flex items-center justify-between gap-4 group"
                 >
-                  <span className="font-sans font-medium text-lg text-white group-hover:text-amber-300 transition-colors">
+                  <span className="font-serif font-bold text-lg text-[#1F1C1B] group-hover:text-[#7A1528] transition-colors">
                     {faq.question}
                   </span>
-                  <span className="font-mono text-sm text-zinc-400">
+                  <span className="font-mono text-sm text-[#78716C] font-bold">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="mt-4 text-sm text-zinc-400 leading-relaxed font-sans">
+                  <div className="mt-4 text-sm text-[#57534E] leading-relaxed font-sans">
                     {faq.answer}
                   </div>
                 )}
@@ -1336,35 +1336,35 @@ function BookingModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div className="bg-[#0c0d12] border border-white/[0.12] rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-[0_0_60px_rgba(0,0,0,0.8)] relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A080D]/70 backdrop-blur-md">
+      <div className="bg-white border border-[#E8E1D5] rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.1] flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-[#57534E] hover:text-[#1F1C1B] transition-colors"
         >
           ✕
         </button>
 
         <div className="flex items-center gap-2 mb-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-          <span className="font-mono text-xs uppercase text-amber-300/80">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7A1528]" />
+          <span className="font-mono text-xs uppercase text-[#7A1528] font-bold">
             15-Minute Operator Strategy Slot
           </span>
         </div>
 
-        <h3 className="text-2xl font-semibold text-white font-sans">
+        <h3 className="text-2xl font-serif font-bold text-[#1F1C1B]">
           Schedule Growth Briefing
         </h3>
 
         {confirmed ? (
-          <div className="mt-6 p-6 rounded-2xl bg-amber-400/[0.04] border border-amber-400/20 text-center">
-            <div className="w-12 h-12 rounded-full bg-amber-400 text-black font-mono font-bold text-xl flex items-center justify-center mx-auto mb-3">
+          <div className="mt-6 p-6 rounded-2xl bg-[#7A1528]/[0.05] border border-[#7A1528]/20 text-center">
+            <div className="w-12 h-12 rounded-full bg-[#7A1528] text-white font-mono font-bold text-xl flex items-center justify-center mx-auto mb-3">
               ✓
             </div>
-            <h4 className="font-medium text-lg text-white">
+            <h4 className="font-serif font-bold text-lg text-[#1F1C1B]">
               Briefing Confirmed.
             </h4>
-            <p className="text-xs text-zinc-400 mt-2">
+            <p className="text-xs text-[#57534E] mt-2">
               Reserved for <strong>{selectedDay} at {selectedTime}</strong>. A calendar invite has been sent to <strong>{email}</strong>.
             </p>
             <button
@@ -1375,7 +1375,7 @@ function BookingModal({ isOpen, onClose }) {
                 setPhone("");
                 onClose();
               }}
-              className="mt-6 px-6 py-2.5 rounded-lg bg-white text-black font-mono text-xs uppercase font-semibold"
+              className="mt-6 px-6 py-2.5 rounded-lg bg-[#7A1528] text-[#FAF8F5] font-mono text-xs uppercase font-semibold hover:bg-[#631020]"
             >
               Close Window
             </button>
@@ -1383,7 +1383,7 @@ function BookingModal({ isOpen, onClose }) {
         ) : (
           <form onSubmit={handleBooking} className="mt-6 space-y-4">
             <div>
-              <label className="font-mono text-[11px] uppercase text-zinc-400 block mb-2">
+              <label className="font-mono text-[11px] uppercase text-[#57534E] block mb-2 font-semibold">
                 1. Select Preferred Day
               </label>
               <div className="grid grid-cols-5 gap-1.5">
@@ -1392,10 +1392,10 @@ function BookingModal({ isOpen, onClose }) {
                     type="button"
                     key={d}
                     onClick={() => setSelectedDay(d)}
-                    className={`py-2 rounded-lg text-center font-mono text-[11px] uppercase font-medium border transition-all ${
+                    className={`py-2 rounded-lg text-center font-mono text-[11px] uppercase font-semibold border transition-all ${
                       selectedDay === d
-                        ? "bg-amber-400 text-black border-amber-400"
-                        : "bg-white/[0.03] border-white/[0.08] text-zinc-300 hover:border-white/[0.2]"
+                        ? "bg-[#7A1528] text-white border-[#7A1528]"
+                        : "bg-[#FAF8F5] border-[#E8E1D5] text-[#57534E] hover:border-stone-400"
                     }`}
                   >
                     {d.slice(0, 3)}
@@ -1405,7 +1405,7 @@ function BookingModal({ isOpen, onClose }) {
             </div>
 
             <div>
-              <label className="font-mono text-[11px] uppercase text-zinc-400 block mb-2">
+              <label className="font-mono text-[11px] uppercase text-[#57534E] block mb-2 font-semibold">
                 2. Select Time Window (EST)
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -1414,10 +1414,10 @@ function BookingModal({ isOpen, onClose }) {
                     type="button"
                     key={t}
                     onClick={() => setSelectedTime(t)}
-                    className={`py-2 rounded-lg text-center font-mono text-xs border font-medium transition-all ${
+                    className={`py-2 rounded-lg text-center font-mono text-xs border font-semibold transition-all ${
                       selectedTime === t
-                        ? "bg-amber-400 text-black border-amber-400"
-                        : "bg-white/[0.03] border-white/[0.08] text-zinc-300 hover:border-white/[0.2]"
+                        ? "bg-[#7A1528] text-white border-[#7A1528]"
+                        : "bg-[#FAF8F5] border-[#E8E1D5] text-[#57534E] hover:border-stone-400"
                     }`}
                   >
                     {t}
@@ -1427,7 +1427,7 @@ function BookingModal({ isOpen, onClose }) {
             </div>
 
             <div>
-              <label className="font-mono text-[11px] uppercase text-zinc-400 block mb-1">
+              <label className="font-mono text-[11px] uppercase text-[#57534E] block mb-1 font-semibold">
                 Your Name &amp; Company *
               </label>
               <input
@@ -1436,12 +1436,12 @@ function BookingModal({ isOpen, onClose }) {
                 placeholder="Marcus Vance, Apex HVAC"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full p-3 rounded-xl bg-black/40 border border-white/[0.1] text-white font-mono text-xs outline-none focus:border-amber-400/60"
+                className="w-full p-3 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] text-[#1F1C1B] font-mono text-xs outline-none focus:border-[#7A1528]"
               />
             </div>
 
             <div>
-              <label className="font-mono text-[11px] uppercase text-zinc-400 block mb-1">
+              <label className="font-mono text-[11px] uppercase text-[#57534E] block mb-1 font-semibold">
                 Direct Work Email *
               </label>
               <input
@@ -1450,12 +1450,12 @@ function BookingModal({ isOpen, onClose }) {
                 placeholder="marcus@apexhvac.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 rounded-xl bg-black/40 border border-white/[0.1] text-white font-mono text-xs outline-none focus:border-amber-400/60"
+                className="w-full p-3 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] text-[#1F1C1B] font-mono text-xs outline-none focus:border-[#7A1528]"
               />
             </div>
 
             <div>
-              <label className="font-mono text-[11px] uppercase text-zinc-400 block mb-1">
+              <label className="font-mono text-[11px] uppercase text-[#57534E] block mb-1 font-semibold">
                 Mobile Number (For Calendar SMS)
               </label>
               <input
@@ -1463,7 +1463,7 @@ function BookingModal({ isOpen, onClose }) {
                 placeholder="+1 (555) 019-2834"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full p-3 rounded-xl bg-black/40 border border-white/[0.1] text-white font-mono text-xs outline-none focus:border-amber-400/60"
+                className="w-full p-3 rounded-xl bg-[#FAF8F5] border border-[#E8E1D5] text-[#1F1C1B] font-mono text-xs outline-none focus:border-[#7A1528]"
               />
             </div>
 
@@ -1472,8 +1472,8 @@ function BookingModal({ isOpen, onClose }) {
               disabled={submitting}
               className={`w-full mt-4 py-3.5 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold transition-all ${
                 submitting
-                  ? "bg-white/[0.05] text-zinc-400 cursor-not-allowed"
-                  : "bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 text-black hover:brightness-110 shadow-[0_0_25px_rgba(245,158,11,0.25)]"
+                  ? "bg-stone-300 text-stone-600 cursor-not-allowed"
+                  : "bg-[#7A1528] text-white hover:bg-[#631020] shadow-[0_4px_16px_rgba(122,21,40,0.25)]"
               }`}
             >
               {submitting ? "Securing Slot..." : `Lock In Slot: ${selectedDay} at ${selectedTime} →`}
@@ -1487,31 +1487,31 @@ function BookingModal({ isOpen, onClose }) {
 
 function Footer({ onOpenAudit, onOpenBooking }) {
   return (
-    <footer className="bg-[#09090b] text-white border-t border-white/[0.08] pt-20 pb-12 font-mono">
+    <footer className="bg-[#1A080D] text-[#FAF8F5] border-t border-[#2C0F17] pt-20 pb-12 font-mono">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-16 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-16 border-b border-[#2C0F17]">
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-bold text-black text-sm">
+              <div className="w-8 h-8 rounded-lg bg-[#7A1528] border border-[#A3223D] flex items-center justify-center font-bold text-white text-sm">
                 f
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-sans">
+              <span className="text-xl font-serif font-bold tracking-tight text-white">
                 frstfame
               </span>
             </div>
-            <p className="text-xs text-zinc-400 leading-relaxed font-sans max-w-sm">
+            <p className="text-xs text-[#C9B3B8] leading-relaxed font-sans max-w-sm">
               {AGENCY_DATA.tagline} Direct operator execution for commercial contractors, specialized clinics, and scalable B2B.
             </p>
             <div className="flex items-center gap-2 pt-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
-              <span className="text-[11px] text-zinc-300 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#E54868] shadow-[0_0_6px_#E54868]" />
+              <span className="text-[11px] text-[#F5C2CB] font-medium">
                 {AGENCY_DATA.status}
               </span>
             </div>
           </div>
 
-          <div className="md:col-span-3 space-y-2.5 text-xs text-zinc-400">
-            <span className="font-semibold text-white uppercase tracking-wider block mb-3">
+          <div className="md:col-span-3 space-y-2.5 text-xs text-[#C9B3B8]">
+            <span className="font-semibold text-white uppercase tracking-wider block mb-3 font-mono">
               Directory
             </span>
             <a href="#capabilities" className="block hover:text-white transition-colors">&gt; Capabilities Spec</a>
@@ -1521,8 +1521,8 @@ function Footer({ onOpenAudit, onOpenBooking }) {
             <a href="#pricing" className="block hover:text-white transition-colors">&gt; Sprint Pricing</a>
           </div>
 
-          <div className="md:col-span-4 space-y-3 text-xs text-zinc-400">
-            <span className="font-semibold text-white uppercase tracking-wider block mb-3">
+          <div className="md:col-span-4 space-y-3 text-xs text-[#C9B3B8]">
+            <span className="font-semibold text-white uppercase tracking-wider block mb-3 font-mono">
               Direct Inquiries
             </span>
             <div>
@@ -1534,7 +1534,7 @@ function Footer({ onOpenAudit, onOpenBooking }) {
             <div className="pt-2">
               <button
                 onClick={onOpenAudit}
-                className="px-4 py-2.5 rounded-lg bg-amber-400 text-black font-semibold uppercase text-[11px] hover:bg-amber-300 transition-colors shadow-[0_0_15px_rgba(245,158,11,0.2)]"
+                className="px-4 py-2.5 rounded-lg bg-[#7A1528] text-white font-semibold uppercase text-[11px] hover:bg-[#631020] transition-colors border border-[#A3223D]"
               >
                 Claim 48h Digital Teardown &rarr;
               </button>
@@ -1542,11 +1542,11 @@ function Footer({ onOpenAudit, onOpenBooking }) {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-zinc-400 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#A68F94] gap-4">
           <div>
             &copy; {new Date().getFullYear()} frstfame Operations. Client IP, ad accounts, and code repositories remain 100% client property.
           </div>
-          <div className="flex items-center gap-4 text-zinc-400">
+          <div className="flex items-center gap-4 text-[#C9B3B8]">
             <span>NO LOCK-IN TERMS</span>
             <span>&bull;</span>
             <span>SOVEREIGN ASSET OWNERSHIP</span>
@@ -1569,7 +1569,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans selection:bg-amber-400 selection:text-black antialiased">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#1F1C1B] font-sans selection:bg-[#7A1528] selection:text-[#FAF8F5] antialiased">
       <Navbar
         onOpenAudit={handleOpenAudit}
         onOpenBooking={handleOpenAudit}
